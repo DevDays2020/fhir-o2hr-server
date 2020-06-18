@@ -46,7 +46,7 @@ public class O2HRSubscribeTask {
 		.returnBundle(Bundle.class).execute();
 		for(BundleEntryComponent bec:subs.getEntry()) {
 			Subscription possibleSub = (Subscription)bec.getResource();
-			if(possibleSub.getChannel().getEndpoint().equalsIgnoreCase("http://52.188.54.157:8080/fhir/Observation")) {
+			if(possibleSub.getChannel().getEndpoint().equalsIgnoreCase("http://52.188.54.157:8080/o2hr/fhir/Observation")) {
 				HRsubscriptionId = possibleSub.getIdElement();
 				HRstate = "created";
 				return;
@@ -58,7 +58,7 @@ public class O2HRSubscribeTask {
 		hrSubscription.setCriteria("Observation?code=http://loinc.org|8867-4");
 		SubscriptionChannelComponent channel = new SubscriptionChannelComponent();
 		channel.setType(SubscriptionChannelType.RESTHOOK);
-		channel.setEndpoint("http://52.188.54.157:8080/fhir/Observation");
+		channel.setEndpoint("http://52.188.54.157:8080/o2hr/fhir/Observation");
 		channel.setPayload("application/fhir+xml");
 		channel.addHeader("Authorization: Basic Y2xpZW50OnNlY3JldA==");
 		hrSubscription.setChannel(channel);
@@ -79,7 +79,7 @@ public class O2HRSubscribeTask {
 		.returnBundle(Bundle.class).execute();
 		for(BundleEntryComponent bec:subs.getEntry()) {
 			Subscription possibleSub = (Subscription)bec.getResource();
-			if(possibleSub.getChannel().getEndpoint().equalsIgnoreCase("http://52.188.54.157:8080/fhir/Observation")) {
+			if(possibleSub.getChannel().getEndpoint().equalsIgnoreCase("http://52.188.54.157:8080/o2hr/fhir/Observation")) {
 				HRsubscriptionId = possibleSub.getIdElement();
 				O2state = "created";
 				return;
@@ -91,7 +91,7 @@ public class O2HRSubscribeTask {
 		o2Subscription.setCriteria("Observation?code=http://loinc.org|2708-6");
 		SubscriptionChannelComponent channel = new SubscriptionChannelComponent();
 		channel.setType(SubscriptionChannelType.RESTHOOK);
-		channel.setEndpoint("http://52.188.54.157:8080/fhir/Observation");
+		channel.setEndpoint("http://52.188.54.157:8080/o2hr/fhir/Observation");
 		channel.setPayload("application/fhir+xml");
 		channel.addHeader("Authorization: Basic Y2xpZW50OnNlY3JldA==");
 		o2Subscription.setChannel(channel);
