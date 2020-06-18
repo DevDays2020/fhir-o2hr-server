@@ -104,5 +104,4 @@ public class O2HRSubscribeTask {
 			O2state = "error";
 		}
 	}
-	}
 }
